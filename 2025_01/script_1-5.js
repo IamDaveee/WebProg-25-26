@@ -90,13 +90,57 @@ function rednderBox2(){
 Kattintásra alakítsa kör alakúra az összes dobozt.
 */
 
+const box3=document.getElementById("element-three")
+let boxes=document.querySelectorAll(".shape")
+let isRound=false
+box3.onclick=()=>{
+  if (isRound) {
+    /* 1. megoldás */
+    for (let i = 0; i < boxes.length; i++) {
+      boxes[i].style.borderRadius="0%"
+    }
+    isRound=false
+  } else{
+    /*2.megoldás*/
+    for (const element of boxes) {
+      element.style.borderRadius="50%"
+    }
+    isRound=true
+  }
+}
+
+
 
 /*
 4. doboz:
 Dupla kattintással sorsoljon egy számot 1 és 20 között és módosítsa a kapott számmal a doboz tartalmát. 
 */
-
+const box4=document.getElementById("element-four")
+box4.ondblclick=()=>{
+  let random=Math.floor(Math.random() * 20);
+  box4.firstElementChild.innerText=random
+}
 /*
 5. doboz:
 Kattintásra tűnjön el, majd egy 1 másodperces várakozás után ismét jelenjen meg.
 */
+const box5=document.getElementById("element-five")
+
+box5.onclick=()=>{
+  box5.classList.add("hidden")
+
+  setTimeout(() => {
+    box5.classList.remove("hidden")
+  }, 1000);
+}
+
+
+document.body.onload=()=>{
+  let colorNumber=6
+  const shape=document.querySelectorAll(".shape")
+  for (let i = 0; i < shape.length; i++) {
+    let Hue=Math.round(Math.random()*(360/colorNumber)*colorNumber)
+    shape[i].style.backgroundColor="hsl("+ Hue +",100%,50%)";
+
+  }
+}
