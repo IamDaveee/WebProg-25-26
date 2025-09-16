@@ -117,7 +117,7 @@ Dupla kattintással sorsoljon egy számot 1 és 20 között és módosítsa a ka
 */
 const box4=document.getElementById("element-four")
 box4.ondblclick=()=>{
-  let random=Math.floor(Math.random() * 20);
+  let random=Math.floor(Math.random() * 20) +1;
   box4.firstElementChild.innerText=random
 }
 /*
