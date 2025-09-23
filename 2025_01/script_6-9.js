@@ -27,6 +27,10 @@ Egérmozdítás eseményre írjuk be az egér pozíciójának x és y koordinát
 a következő séma szerint: "X: {x-koordináta}, Y: {y-koordináta}"
 */
 
+document.onmousemove=(event)=>{
+  console.dir(event.clientX, event.clientY)
+  document.getElementById("element-eight").firstElementChild.innerText=`X: ${event.clientX}\nY: ${event.clientY}`
+}
 
 /*
 9. doboz:
@@ -45,3 +49,39 @@ Pl:
   
   Dobozba és state-be beírandó érték: 45
 */
+
+document.getElementById("box-9").onsubmit = (event) => {
+  event.preventDefault()
+
+  const operator = event.target.elements.operator.value
+  console.log(operator)
+  const operand = parseInt(event.target.elements.operand.value, 10) // convert to int
+  console.log(operand)
+  const boxNumber = parseInt(document.getElementById("element-nine").firstElementChild.innerText, 10) // convert to int
+  console.log(boxNumber)
+
+  let total = 0
+  switch (operator) {
+    case "mult":
+      total = boxNumber * operand
+      break
+    case "div":
+      total = boxNumber / operand
+      break
+    case "add":
+      total = boxNumber + operand
+      break
+    case "sub":
+      total = boxNumber - operand
+      break
+  }
+
+  console.log(total)
+  document.getElementById("element-nine").firstElementChild.innerText = total
+}
+
+
+// document.formBoxNine.onsubmit=(event)=>{
+//   event.preventDefault()
+//   console.dir(event)
+// }
