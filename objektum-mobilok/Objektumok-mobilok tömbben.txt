@@ -1,0 +1,42 @@
+1. telefon
+	    brand: 'Apple',
+            name: 'iPhone X',
+            price: 250000,
+            provider: {
+                country: 'HU',
+                name: 'Vodafone'
+            
+2. telefon
+            brand: 'Huawei',
+            name: '10',
+            price: 180000,
+            provider: {
+                country: 'DE',
+                name: 'T-Mobile'
+            
+3.telefon
+            brand: 'ZTE',
+            name: 'Blade',
+            price: 110000,
+            provider: {
+                country: 'DE',
+                name: 'Vodafone'
+
+// Feladatok
+
+// Az adatok külön JS állományban legyenek!
+
+// Írasd ki konzolra
+	// 1. Az első telefon nevét
+	// 2. A második telefon árát
+	// 3. A harmadik telefon szolgáltatójának országát
+
+// Vegyél fel újabba(ka)t az adatstruktúrába, legyen olyan amelyiknél nincs "price", ill. provider.name értéke null
+
+
+// Írasd ki konzolra telefonokat
+
+// Írasd ki a telefonok adatai közük a
+	// brand, name értéket,
+	// price értéket ha van, és a 
+	// szolgáltatót ha van
