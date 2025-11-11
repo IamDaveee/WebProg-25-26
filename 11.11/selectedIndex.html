@@ -1,81 +1,70 @@
-    <!DOCTYPE html>
-    <html>
-    <style>
-        .selected{
-            color: red;
-            font-weight: bold;
-        }
-    </style>
-    <body>
+<!DOCTYPE html>
+<html>
+<style>
+    .selected{
+        color: red;
+        font-weight: bold;
+    }
+</style>
+<body>
+    <h2>The select Element</h2>
+    <p>The select element defines a drop-down list:</p>
 
-        <h2>The select Element</h2>
+    <form action="#" name="myForm" id="myForm">
+        <select id="cars" name="cars">
+            <option value="" selected disabled>Choose..</option>
+        </select>
+        <button type="submit">Ok</button>
+    </form>
 
-        <p>The select element defines a drop-down list:</p>
+    <div id="demo">
+    </div>
 
-        <form action="#" name="myForm" id="myForm">
-            <select id="cars" name="cars">
-                <option value="" selected disabled>Choose..</option>
-            </select>
+<script>
+    let cars = [
+        {name: "Volvo"},
+        {name: "Saab"},
+        {name: "Fiat"},
+        {name: "Audi"}
+    ]
 
-            <button type="submit">Ok</button>
-        </form>
+    let index=0
+    let list="<ul>"
 
-        
+    for (const element of cars) {
+        document.getElementById("cars").innerHTML+=`<option>${element.name}</option>`
+        list+=`<li>${element.name}</li>`
+    }
 
-        <div id="demo">
-        
-        </div>
+    list+="</ul>"
+    document.getElementById("demo").innerHTML+=list
 
-    <script>
+    const carList = document.getElementsByTagName("li")
 
-        let cars = [
-            {name: "Volvo"},
-            {name: "Saab"},
-            {name: "Fiat"},
-            {name: "Audi"}
-        ]
-
-        let index=0
-
-        let list="<ul>"
-
-        for (const element of cars) {
-            document.getElementById("cars").innerHTML+=`<option>${element.name}</option>`
-            list+=`<li>${element.name}</li>`
-        }
-
-        list+="</ul>"
-        document.getElementById("demo").innerHTML+=list
-
-        const carList = document.getElementsByTagName("li")
-
-        /*document.getElementById("cars").onchange=()=>{
-            for (const element of carList) {
-                element.classList.remove("selected")
-            }
-            index=document.getElementById("cars").selectedIndex-1
-            console.log(index, cars[index])
-
-            console.log(carList[index])
-            // carList[index].style.color="red"
-            // carList[index].style.fontWeight="bold"
-            carList[index].classList.add("selected")
-        }*/
-
-        document.myForm.onsubmit=(event)=>{
-            event.preventDefault()
-            console.log("Submit")
-            index=document.getElementById("cars").selectedIndex-1
-            console.log(index, cars[index])
-
-            
-            for (const element of carList) {
-                element.classList.remove("selected")
-            }
-            carList[index].classList.add("selected")
+    /*document.getElementById("cars").onchange=()=>{
+        for (const element of carList) {
+            element.classList.remove("selected")
         }
         
-    </script>
+        index=document.getElementById("cars").selectedIndex-1
+        console.log(index, cars[index])
 
-    </body>
-    </html>
+        console.log(carList[index])
+        // carList[index].style.color="red"
+        // carList[index].style.fontWeight="bold"
+        carList[index].classList.add("selected")
+    }*/
+
+    document.myForm.onsubmit=(event)=>{
+        event.preventDefault()
+        console.log("Submit")
+        index=document.getElementById("cars").selectedIndex-1
+        console.log(index, cars[index])
+        for (const element of carList) {
+            element.classList.remove("selected")
+        }
+        carList[index].classList.add("selected")
+    }
+</script>
+</body>
+</html>
