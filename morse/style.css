@@ -1,0 +1,17 @@
+th{
+    border: 2px solid black;
+}
+td{
+    border: 1px solid black;
+    border-bottom: none;
+}
+.left{
+    border-right: none;
+}
+.middle{
+    border-left: none;
+    border-right: none;
+}
+.right{
+    border-left: none;
+}
