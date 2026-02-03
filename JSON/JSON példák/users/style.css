@@ -1,0 +1,13 @@
+#users{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: fit-content;
+}
+.card{
+    flex-wrap: wrap;
+    border: 1px solid black;
+    width: fit-content;
+    padding: 10px;
+}

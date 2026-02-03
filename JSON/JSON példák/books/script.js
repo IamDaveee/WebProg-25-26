@@ -32,7 +32,7 @@ for (const element of books) {
             <p>Szerző: ${element.author}</p>
             <p>Cím: ${element.title}</p>
             <p>Ár: &euro;.${element.price}</p>
-            ${element.isbn?`<p>Isbn: ${element.isbn}</p>`:""} 
+            ${element.isbn?`<p>Isbn: ${element.isbn}</p>`:""}
         </div>
     `
     books[i].img=coverImg[i]

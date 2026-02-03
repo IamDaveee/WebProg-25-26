@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse</title>
+    <style>
+        fieldset { border: 1px solid black; border-radius: 5px; width: fit-content;}
+        figure { margin: auto; margin-top: 1rem; text-align: center;}
+        figure img { max-width: 150px; }
+        input[type=text] { margin: .5rem; margin-left: 0; width: 100%;}
+        iframe { margin-top: 1rem; max-width: 360px; aspect-ratio: 1 / 1; }
+    </style>
+</head>
+<body>
+
+    <form action="#" name="myForm">
+        <fieldset><legend>Tallózó</legend>
+            <input type="text" name="avatarNobodyURL" id="avatarNobodyURL" placeholder="URL of Avatar" value="https://reqres.in/img/faces/12-image.jpg"><br>
+            <input type="file" name="file" id="">
+            <button type="submit">OK</button>
+
+            <figure><img id="preview"></figure>
+            <!--
+                <iframe id="preview" ></iframe>
+            -->
+
+        </fieldset>
+    </form>
+
+<script>
+    const myForm = document.myForm
+
+    myForm.onsubmit = (event) => {
+        // myForm.onchange = (event) => { 
+
+        event.preventDefault()
+        console.log(myForm.file.value)
+        
+        const file = myForm.file.files[0]
+        
+        let fileURL = 'https://tinyurl.com/3my9yceh'
+        fileURL = 'https://gravatar.com/avatar/8d53bd57d8cc255d1223ef7cb29e4d00?d=mm&s=160'
+        // fileURL = file ? (URL.createObjectURL(file)) : 'https://tinyurl.com/3my9yceh'
+
+        if (file) { 
+            fileURL = (URL.createObjectURL(file))
+            console.log (fileURL)
+        }
+            
+        document.getElementById("preview").src = fileURL
+        
+        myForm.reset()
+    }
+
+</script>
+</body>
+</html>
