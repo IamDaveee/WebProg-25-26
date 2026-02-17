@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./script.js" defer></script>
+    <script src="./deleteUser(s).js" defer></script>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -13,6 +14,27 @@
     <div id="users">
         
     </div>
+    <button id="deleteSelectedUsers">Delete Selected User</button>
 
+    <div class="classContainer">
+        <form action="#" name="myForm">
+            <fieldset><legend>Tallózó</legend>
+                <input type="text" name="firstName" placeholder="First Name:">
+                <input type="text" name="lastName" placeholder="Last Name:">
+                <input type="email" name="email" placeholder="Email:">
+                <input type="text" name="avatarNobodyURL" id="avatarNobodyURL" placeholder="URL of Avatar"><br>
+                <input type="file" name="file" id="">
+                <button type="submit">OK</button>
+    
+                <figure><img id="preview"></figure>
+                <!--
+                    <iframe id="preview" ></iframe>
+                -->
+    
+            </fieldset>
+        </form>
+    </div>
+
+    
 </body>
 </html>

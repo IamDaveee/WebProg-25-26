@@ -6,18 +6,67 @@ const string2='{"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7
 
 const masodik=JSON.parse(string2).data
 
-const merged=elso.concat(masodik)
+let merged=elso.concat(masodik)
 console.log(merged)
 
 const container=document.getElementById("users")
-for (const element of merged) {
-    container.innerHTML+=`
-        <div class="card">
-            <img src="${element.avatar}" alt="">
-            <p>Email: ${element.email}</p>
-            <p>First Name: ${element.first_name}</p>
-            <p>ID: ${element.id}</p>
-            <p>Last Name: ${element.last_name}</p>
-        </div>
-    `
+let counter=1
+function loadUsers(){
+    for (const element of merged) {
+        container.innerHTML+=`
+            <div class="card">
+                <input type="checkbox" class="checkbox" data-id="${counter}">
+                <img src="${element.avatar}" alt="" data-id="${counter}">
+                <p data-id="${counter}">ID: ${element.id}</p>
+                <p data-id="${counter}">First Name: ${element.first_name}</p>
+                <p data-id="${counter}">Last Name: ${element.last_name}</p>
+                <p data-id="${counter}">Email: ${element.email}</p>
+                <button class="deleteButton" data-id="${counter}">Delete this user</button>
+            </div>
+        `
+        counter++
+    }
+}
+loadUsers()
+
+const myForm = document.myForm
+// a form neve (name attribútum értéke) alapján, a form eléréséhez konstans 
+
+myForm.onsubmit = (event) => {
+
+    event.preventDefault()  
+        // https://www.w3schools.com/JsrEF/event_preventdefault.asp
+        // nem tölti újra az oldalt, ezáltal nem "törli" (állítja lapértékre) a beviteli mezőket
+
+    console.log(myForm.file.value)
+    
+    const file = myForm.file.files[0]
+    const firstName=myForm.firstName.value
+    const lastName=myForm.lastName.value
+    const email=myForm.email.value
+    console.log(firstName, lastName, email)
+    
+    let fileURL = 'https://tinyurl.com/3my9yceh' // URL rövidítő https://tinyurl.com/
+    fileURL = 'https://gravatar.com/avatar/8d53bd57d8cc255d1223ef7cb29e4d00?d=mm&s=160'
+    
+    // fileURL = file ? (URL.createObjectURL(file)) : 'https://tinyurl.com/3my9yceh'
+
+    if (file) { 
+        fileURL = (URL.createObjectURL(file))
+        console.log (fileURL)
+    }
+        
+    //document.getElementById("preview").src = fileURL
+
+    const newUser=`'{"data":[{"id":${counter},"email":"${email}","first_name":"${firstName}","last_name":"${lastName}","avatar":"${fileURL}"}]}'`
+    counter++
+
+    console.log(newUser)
+    merged.concat(JSON.parse(newUser).data)
+    console.log(merged)
+    container.innerHTML=""
+    loadUsers()
+    
+    myForm.reset()
+        // "törli" (állítja lapértékre) a beviteli mezőket
 }

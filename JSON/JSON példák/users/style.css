@@ -1,13 +1,60 @@
+body{
+    text-align: center;
+}
+h1{
+    text-align: center;
+}
 #users{
     display: flex;
     flex-direction: row;
     gap: 10px;
     flex-wrap: wrap;
     width: fit-content;
+    text-align: center;
+    justify-content: center;
 }
 .card{
     flex-wrap: wrap;
     border: 1px solid black;
     width: fit-content;
     padding: 10px;
+}
+.checkbox{
+    display: block;
+    justify-self: end;
+}
+fieldset {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: fit-content;
+}
+figure{
+    margin: auto;
+    margin-top: 1rem;
+    text-align: center;
+}
+figure img{
+    max-width: 150px;
+}
+input[type=text] {
+    margin: .5rem;
+    margin-left: 0;
+    width: 100%;
+}
+input[type=email] {
+    margin: .5rem;
+    margin-left: 0;
+    width: 100%;
+}
+iframe {
+    margin-top: 1rem;
+    max-width: 360px;
+    aspect-ratio: 1 / 1;
+}
+#deleteSelectedUsers{
+    margin: 1rem;
+}
+.classContainer{
+   margin: auto;
+   justify-self: center;
 }

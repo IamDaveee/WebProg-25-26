@@ -16,7 +16,7 @@
 
     <form action="#" name="myForm">
         <fieldset><legend>Tallózó</legend>
-            <input type="text" name="avatarNobodyURL" id="avatarNobodyURL" placeholder="URL of Avatar" value="https://reqres.in/img/faces/12-image.jpg"><br>
+            <input type="text" name="avatarNobodyURL" id="avatarNobodyURL" placeholder="URL of Avatar"><br>
             <input type="file" name="file" id="">
             <button type="submit">OK</button>
 
@@ -29,18 +29,22 @@
     </form>
 
 <script>
-    const myForm = document.myForm
+    const myForm = document.myForm 
+        // a form neve (name attribútum értéke) alapján, a form eléréséhez konstans 
 
     myForm.onsubmit = (event) => {
-        // myForm.onchange = (event) => { 
 
-        event.preventDefault()
+        event.preventDefault()  
+            // https://www.w3schools.com/JsrEF/event_preventdefault.asp
+            // nem tölti újra az oldalt, ezáltal nem "törli" (állítja lapértékre) a beviteli mezőket
+
         console.log(myForm.file.value)
         
         const file = myForm.file.files[0]
         
-        let fileURL = 'https://tinyurl.com/3my9yceh'
+        let fileURL = 'https://tinyurl.com/3my9yceh' // URL rövidítő https://tinyurl.com/
         fileURL = 'https://gravatar.com/avatar/8d53bd57d8cc255d1223ef7cb29e4d00?d=mm&s=160'
+        
         // fileURL = file ? (URL.createObjectURL(file)) : 'https://tinyurl.com/3my9yceh'
 
         if (file) { 
@@ -51,6 +55,7 @@
         document.getElementById("preview").src = fileURL
         
         myForm.reset()
+            // "törli" (állítja lapértékre) a beviteli mezőket
     }
 
 </script>
